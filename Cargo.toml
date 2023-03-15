@@ -11,14 +11,14 @@ keywords = ["ethereum", "mev", "dex", "cffms"]
 
 
 [dependencies]
-ethers = { version = "2.0.0", default-features = false, features = ["abigen", "ipc", "rustls"] }
-tokio = { version = "1.21.0", features = ["full"] }
-futures = "0.3.24"
-indicatif = "0.17.1"
-thiserror = "1.0.36"
-async-trait = "0.1.57"
-serde_json = "1.0.85"
-serde = "1.0.145"
+ethers = { git = "https://github.com/hexiaoyuan/ethers-rs", default-features = false, features = ["abigen", "ipc", "ws", "openssl"], branch = "v2.0-pt01" }
+tokio = { version = "1.26.0", features = ["full"] }
+futures = "0.3.27"
+indicatif = "0.17.3"
+thiserror = "1.0.39"
+async-trait = "0.1.66"
+serde_json = "1.0.94"
+serde = "1.0.156"
 num-bigfloat = "1.6.2"
-uniswap_v3_math = "0.2.26"
 regex = "1.7.1"
+uniswap_v3_math = { git = "https://github.com/hexiaoyuan/uniswap_v3_math", branch = "main-pt01" }
