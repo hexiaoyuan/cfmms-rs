@@ -150,7 +150,7 @@ impl UniswapV3Pool {
         middleware: Arc<M>,
     ) -> Result<U256, CFMMError<M>> {
         let v3_pool = abi::IUniswapV3Pool::new(self.address, middleware);
-        let (word_position, _) = uniswap_v3_math::tick_bit_map::position(tick);
+        let (word_position, _) = uniswap_v3_math::tick_bitmap::position(tick);
         Ok(v3_pool.tick_bitmap(word_position).call().await?)
     }
 
@@ -757,7 +757,7 @@ impl UniswapV3Pool {
     }
 
     pub fn calculate_word_pos_bit_pos(&self, compressed: i32) -> (i16, u8) {
-        uniswap_v3_math::tick_bit_map::position(compressed)
+        uniswap_v3_math::tick_bitmap::position(compressed)
     }
 
     pub async fn simulate_swap_mut<M: Middleware>(
